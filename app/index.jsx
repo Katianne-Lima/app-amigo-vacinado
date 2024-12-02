@@ -1,44 +1,46 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { TextInput } from 'react-native-paper';
+import { useEffect } from 'react';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import { useRouter } from 'expo-router';
 
 export default function App() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Após 5 segundos, redirecionar para a próxima tela
+    const timeout = setTimeout(() => {
+      router.push('/main'); // tela que ira ser redirecionado 
+    }, 5000);
+
+    return () => clearTimeout(timeout); // Limpar timeout apos a realização da ação
+  }, []);
+
   return (
     <View style={styles.container}>
-      <TextInput
-        autoCapitalize="none"
-        keyboardType="email-address"
-        label="Email"
-        style={styles.entradaTexto} activeUnderlineColor='black'
-      />
-      <TextInput
-        autoCapitalize="words"
-        label="Nome"
-        style={styles.entradaTexto} activeUnderlineColor='black' 
-      />
-      <TextInput
-        autoCapitalize="none"
-        secureTextEntry={true}
-        keyboardType="numeric"
-        maxLength={4}
-        right={<TextInput.Icon icon="eye" />}
-        label="Senha"
-        style={styles.entradaTexto} activeUnderlineColor='black'
-      />
-      <StatusBar style="auto" />
+      <Image style={styles.logo} source={require('../assets/Logo.png')} />
+      <Text style={styles.title}>Amigo Vacinado</Text>
     </View>
   );
 }
 
+//CSS Parte da estilização
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "rgb(194, 125, 79)",
-    //alignItems: 'center',
-    justifyContent: "space-evenly",
-    paddingHorizontal: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  entradaTexto: {
-    backgroundColor: "#eee7e8",
+  logo: {
+    width: 320,
+    height: 200,
+    borderRadius: 50,
+    margin: 15,
+  },
+  title: {
+    fontSize: 50,
+    color: '#ffff',
+    textAlign: 'center',
+    fontWeight: '800',
+    margin: 15,
   },
 });
