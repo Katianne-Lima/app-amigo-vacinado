@@ -11,28 +11,31 @@ export default function App() {
     <View style={styles.container}>
       <Text style={styles.title}>Cadastrar</Text>
 
+      {/* Campo de Nome */}
       <TextInput
         autoCapitalize="words"
         label="Nome"
-        style={styles.entradaTexto}
-        activeUnderlineColor="black"
+        style={styles.input}
+        activeUnderlineColor="#172477"
       />
 
+      {/* Campo de Email */}
       <TextInput
         autoCapitalize="none"
         keyboardType="email-address"
         label="Email"
-        style={styles.entradaTexto}
-        activeUnderlineColor="black"
+        style={styles.input}
+        activeUnderlineColor="#172477"
       />
 
+      {/* Campo de Senha */}
       <TextInput
         autoCapitalize="none"
         secureTextEntry={!showPassword} // Alterna entre mostrar e esconder senha
         keyboardType="numeric"
         label="Senha"
-        style={styles.entradaTexto}
-        activeUnderlineColor="black"
+        style={styles.input}
+        activeUnderlineColor="#172477"
         maxLength={20}
         right={
           <TextInput.Icon
@@ -42,46 +45,49 @@ export default function App() {
         }
       />
 
-      <Button mode="contained" style={styles.btnEntrar}>
-        Entrar
+      {/* Botão de Cadastro */}
+      <Button mode="contained" style={styles.btnCadastrar}>
+        Cadastrar-se
       </Button>
+      
       <StatusBar style="auto" />
     </View>
   );
 }
 
-//CSS Parte da estilização
-
+// Estilos aprimorados
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "rgb(194, 125, 79)",
+    backgroundColor: '#f8f8f8', // Fundo claro e neutro
     justifyContent: 'center',
     alignItems: 'center',
+    padding: 20,
   },
 
   title: {
-    fontSize: 50,
-    color: '#ffff',
+    fontSize: 40,
+    color: '#172477', // Cor escura para o título
     textAlign: 'center',
-    fontWeight: '800',
+    fontWeight: '700',
+    marginBottom: 30, // Maior espaçamento entre o título e os campos
   },
 
-  entradaTexto: {
-    width: 350,
-    backgroundColor: "#eee7e8",
-    margin: 10,
-    padding: 5,
+  input: {
+    width: '100%', // Adapta os inputs ao tamanho da tela
+    backgroundColor: '#ffffff', // Fundo branco para os campos
+    marginBottom: 15,
+    borderRadius: 8,
+    paddingLeft: 10, // Padding interno mais confortável
   },
 
-  btnEntrar: {
-    width: 200,
+  btnCadastrar: {
+    width: '80%',
     height: 50,
-    textAlign: 'center',
+    backgroundColor: '#172477', // Cor do botão
     justifyContent: 'center',
-    fontSize: 100,
-    color: "#fffff",
-    backgroundColor: "#172477",
-    fontWeight: 'bold',
+    alignItems: 'center',
+    borderRadius: 8, // Bordas arredondadas no botão
+    marginTop: 20,
   },
 });

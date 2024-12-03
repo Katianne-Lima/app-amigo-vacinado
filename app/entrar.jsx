@@ -11,22 +11,24 @@ export default function App() {
     <View style={styles.container}>
       <Text style={styles.title}>Entrar</Text>
 
+      {/* Campo de Email */}
       <TextInput
         autoCapitalize="none"
         keyboardType="email-address"
         label="Email"
-        style={styles.entradaTexto}
-        activeUnderlineColor="black"
+        style={styles.input}
+        activeUnderlineColor="#172477"
       />
 
+      {/* Campo de Senha */}
       <TextInput
         autoCapitalize="none"
         secureTextEntry={!showPassword} // Alterna entre mostrar e esconder senha
         keyboardType="numeric"
         maxLength={4}
         label="Senha"
-        style={styles.entradaTexto}
-        activeUnderlineColor="black"
+        style={styles.input}
+        activeUnderlineColor="#172477"
         right={
           <TextInput.Icon
             icon={showPassword ? 'eye-off' : 'eye'} // Alterna o ícone
@@ -35,46 +37,49 @@ export default function App() {
         }
       />
 
+      {/* Botão de Entrar */}
       <Button mode="contained" style={styles.btnEntrar}>
         Entrar
       </Button>
+
       <StatusBar style="auto" />
     </View>
   );
 }
 
-//CSS Parte da estilização
-
+// Estilos aprimorados
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "rgb(194, 125, 79)",
+    backgroundColor: '#f8f8f8', // Fundo claro e neutro
     justifyContent: 'center',
     alignItems: 'center',
+    padding: 20, // Adicionado padding para dar mais espaço
   },
 
   title: {
-    fontSize: 50,
-    color: '#ffff',
+    fontSize: 40,
+    color: '#172477', // Cor mais escura para o título
     textAlign: 'center',
-    fontWeight: '800',
+    fontWeight: '700',
+    marginBottom: 40, // Mais espaço entre o título e o formulário
   },
 
-  entradaTexto: {
-    width: 350,
-    backgroundColor: "#eee7e8",
-    margin: 10,
-    padding: 5,
+  input: {
+    width: '100%', // Adapta os inputs ao tamanho da tela
+    backgroundColor: '#ffffff', // Fundo branco para os inputs
+    marginBottom: 15,
+    borderRadius: 8,
+    paddingLeft: 10, // Mais padding para os campos de texto
   },
 
   btnEntrar: {
-    width: 200,
+    width: '80%',
     height: 50,
-    textAlign: 'center',
+    backgroundColor: '#172477', // Cor do botão
     justifyContent: 'center',
-    fontSize: 100,
-    color: "#fffff",
-    backgroundColor: "#172477",
-    fontWeight: 'bold',
+    alignItems: 'center',
+    borderRadius: 8, // Bordas arredondadas no botão
+    marginTop: 20,
   },
 });
